@@ -1,9 +1,9 @@
-from cgi import test
 import time #Importando a biblioteca time
 from time import * #Importando todas as funções da biblioteca time
 import selenium #Importando a biblioteca selenium
 from selenium import webdriver #Importando o modulo Webdriver da biblioteca selenium
 from selenium.webdriver.common.keys import Keys #Importando as Keys do modulo Webdriver
+from tkinter import *
 
 print("Hello Word")
 
@@ -32,14 +32,17 @@ class InstagramBot:
         
         driver.get('https://www.instagram.com/p/CY2W-7MLngp/') #link do post que e para comentar 
         sleep(5)
-        driver.find_element_by_class_name('Ypffh').click() #Localizando o campo comentario
-        Campo_comentario = driver.find_element_by_class_name('Ypffh')
-        Campo_comentario.click()
-        Campo_comentario.clear()
-        Campo_comentario.send_keys('T1') #Enviando texto a ser comentado
-        sleep(1)
-        Campo_comentario.send_keys(Keys.ENTER) #Enviando o comando de aperta o enter
-        sleep(60)
+
+        for numero in range(5):
+            driver.find_element_by_class_name('Ypffh').click() #Localizando o campo comentario
+            Campo_comentario = driver.find_element_by_class_name('Ypffh')
+            Campo_comentario.click()
+            Campo_comentario.clear()
+            Campo_comentario.send_keys('@bruna_kemillysouza') #Enviando texto a ser comentado
+            sleep(1)
+            for numero in range(3):
+                Campo_comentario.send_keys(Keys.ENTER) #Enviando o comando de aperta o enter
+            sleep(10)
 
 VEGO = InstagramBot('vegotest52','88195104aA')
 VEGO.Login()
