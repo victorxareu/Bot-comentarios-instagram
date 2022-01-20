@@ -4,6 +4,7 @@ import selenium #Importando a biblioteca selenium
 from selenium import webdriver #Importando o modulo Webdriver da biblioteca selenium
 from selenium.webdriver.common.keys import Keys #Importando as Keys do modulo Webdriver
 import PySimpleGUI as sg
+import Bot comentarios instagram
 
 #Criando o lyout
 def Criar_janela_inicial():
@@ -22,5 +23,8 @@ while True:
     event, values = janela.read()
     if event == sg.WIN_CLOSED:
         break
-    if event == 'Nova Tarefa':
+    elif event == 'Nova Tarefa':
         janela.extend_layout(janela['continer'], [[sg.Checkbox(''),sg.Input('')]])
+    elif event == 'Resetar':
+        janela.close()
+        janela = Criar_janela_inicial()
