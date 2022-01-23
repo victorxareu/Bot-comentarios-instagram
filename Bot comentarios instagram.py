@@ -3,7 +3,7 @@ from time import * #Importando todas as funções da biblioteca time
 import selenium #Importando a biblioteca selenium
 from selenium import webdriver #Importando o modulo Webdriver da biblioteca selenium
 from selenium.webdriver.common.keys import Keys #Importando as Keys do modulo Webdriver
-from tkinter import *
+import PySimpleGUI as sg
 
 print("Hello Word")
 
@@ -33,12 +33,12 @@ class InstagramBot:
         driver.get('https://www.instagram.com/p/CY2W-7MLngp/') #link do post que e para comentar 
         sleep(5)
 
-        for numero in range(5):
+        for numero in range(2):
             driver.find_element_by_class_name('Ypffh').click() #Localizando o campo comentario
             Campo_comentario = driver.find_element_by_class_name('Ypffh')
             Campo_comentario.click()
             Campo_comentario.clear()
-            Campo_comentario.send_keys('@bruna_kemillysouza') #Enviando texto a ser comentado
+            Campo_comentario.send_keys('Top de mais') #Enviando texto a ser comentado
             sleep(1)
             for numero in range(3):
                 Campo_comentario.send_keys(Keys.ENTER) #Enviando o comando de aperta o enter
